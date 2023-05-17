@@ -11,3 +11,23 @@
     width: 100%;
   }
   
+.card-deck{
+  background-color:blanchedalmond;
+}
+  
+  .card-body{
+    background-color: beige
+  }
+  .text-center {
+    background-color: burlywood;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    
+  }
+  .card-title{
+    font-weight: bold;
+  }
+  
+  
+  
