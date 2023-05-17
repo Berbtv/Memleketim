@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    
+  }
+ 
+
+  header, main, footer {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  
+  img {
+    max-width: 100%;
+    object-fit: cover;
+     
+  }
+  .card-img-top{
+    width: 100%;
+    height:400px;
+    object-fit: cover;
+  }
+  p{
+    font-family: 'Aldrich', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+  }
+  .navbar-nav{
+    background-color: #ffd500;
+    color: black;
+  }
+  .navbar-brand{
+    background-color: red;
+    color: black;
+  }
+  
+  
