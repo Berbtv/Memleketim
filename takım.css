@@ -44,5 +44,14 @@ body {
     background-color: red;
     color: black;
   }
-  
-  
+  .logo{
+    height: 600px;
+    width: 1350px;
+  }
+  .stadyum{
+    height: 500px;
+    width: 1400px;
+  }
+  .h2{
+    padding: 30px;
+  }
