@@ -1,5 +1,5 @@
-const apiUrl = 'https://imdb8.p.rapidapi.com/auto-complete';
-const apiKey = '47f4280020mshba4b719b7a520cbp1ea869jsn6a6269c9500f';
+const Url = 'https://imdb8.p.rapidapi.com/auto-complete';
+const Anahtar = '47f4280020mshba4b719b7a520cbp1ea869jsn6a6269c9500f';
 
 const filmAdInput = document.getElementById('film-ad-input');
 const filmContainer = document.getElementById('film-container');
@@ -15,11 +15,11 @@ async function getFilmData() {
     return;
   }
   
-  const url = `${apiUrl}?q=${encodeURIComponent(filmAdi)}`;
+  const url = `${Url}?q=${encodeURIComponent(filmAdi)}`;
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': apiKey,
+      'X-RapidAPI-Key': Anahtar,
       'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
     }
   };

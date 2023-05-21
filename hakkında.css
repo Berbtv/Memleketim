@@ -34,3 +34,7 @@ body {
     text-align: center;
     color: #333;
   }
+  .div .img{
+    height: 100px;
+    width: 50px;
+  }
