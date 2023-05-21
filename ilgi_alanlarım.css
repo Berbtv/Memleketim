@@ -1,0 +1,74 @@
+
+body{
+    background: var(--primary-color);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: auto;
+    background-color:darkgray;
+    font-size: 20px;
+}
+
+.search-container{
+    background: darkgrey;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    padding: .9rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  .form-control{
+    width: 600px;
+    padding: 20px;
+    justify-content: center;
+
+  }
+
+.text{
+    align-content: center;
+}
+.btn{
+    align-content: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+#film-poster {
+    width: 400px; 
+    height: 600px; 
+    object-fit: cover;
+  }
+  
+
+
+.container{
+    margin: auto;
+    padding: 1rem;
+}
+
+  .input-alani {
+    width: 300px;
+  }
+  
+  
+  
+  #film-container {
+    text-align: center;
+  }
+  .film-ad{
+    
+
+  }
+  #film-ad {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Arial, sans-serif; /* Yazı tipi */
+    color: #333; /* Yazı rengi */
+    text-align: center; /* Metin hizalaması */
+  }
+  
+
+

@@ -1,53 +1,54 @@
-const url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=15005c48f2625def09dacd3d0fc01762&page=1';
-const key = '47f4280020mshba4b719b7a520cbp1ea869jsn6a6269c9500f'
-const IMG_Path = 'https://image.tmdb.org/t/p/w1280';
+const apiUrl = 'https://imdb8.p.rapidapi.com/auto-complete';
+const apiKey = '47f4280020mshba4b719b7a520cbp1ea869jsn6a6269c9500f';
 
-const main = document.getElementById('main');
-const form = document.getElementById('form');
-const search = document.getElementById('search');
+const filmAdInput = document.getElementById('film-ad-input');
+const filmContainer = document.getElementById('film-container');
+const filmPoster = document.getElementById('film-poster');
+const filmAd = document.getElementById('film-ad');
+const filmBilgileri = document.getElementById('film-bilgileri');
 
-async function getMovie(url){
-    const res = await fetch(url);
-    const data = await res.json();
-    showMovie(data.results);
-}
-
-function showMovie(movie){
-    main.innerHTML = '';
-    movie.array.forEach(movie => {
-        const {title, poseter_path, vote_average, overview} = movie;
-        const movieEl = document.createElement('div');
-        movieEl.classList.add('movie');
-        movieEl.innerHTML = `
-
-        <div class="movie">
-            <img src=" ${IMG_Path + poster_path}" alt="${title}">
-            <div class="movie-info">
-                <h3>${title}</h3>
-                <span class="green">${vote_average}</span>
-        </div>
-            <div class="overview">
-                ${overview}
-          </div>
-      </div>
-         `
-        main.appendChild(movieEl);
-
-    });
-
-}
-
-function getClassByRate(vote)
-
-form.addEventListener('submit',(e) => {
-    e.preventDefault();
-    const searcTerm = search.value;
-
-    if(searcTerm && searcTerm !== ''){
-        getMovie(url + searcTerm)
-        search.value='';
+async function getFilmData() {
+  const filmAdi = filmAdInput.value.trim();
+  
+  if (filmAdi === '') {
+    alert('Film adı girin');
+    return;
+  }
+  
+  const url = `${apiUrl}?q=${encodeURIComponent(filmAdi)}`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': apiKey,
+      'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
     }
-    else{
-        window.location.reload()
-    }    
-})
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+
+    if (data.d && data.d.length > 0) {
+      const firstResult = data.d[0];
+      const filmAdi = firstResult.l;
+      const filmResmi = firstResult.i && firstResult.i.imageUrl;
+      const filmBilgiListesi = firstResult.s && firstResult.s.split(',');
+
+      filmAd.textContent = filmAdi;
+      filmPoster.src = filmResmi;
+
+      filmBilgileri.innerHTML = '';
+      filmBilgiListesi.forEach((bilgi) => {
+        const liElement = document.createElement('li');
+        liElement.textContent = bilgi.trim();
+        filmBilgileri.appendChild(liElement);
+      });
+    } else {
+      filmAd.textContent = 'Film bulunamadı';
+      filmPoster.src = '';
+      filmBilgileri.innerHTML = '';
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
